@@ -5,12 +5,14 @@ import os
 from flask_cors import cross_origin
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {
-    "origins": [
-        "https://youtube-clickbait-detector.vercel.app",
-        "http://localhost:3000"
-    ]
-}}, supports_credentials=True)
+CORS(app, resources={
+    r"/predict": {
+        "origins": [
+            "https://youtube-clickbait-detector.vercel.app",
+            "http://localhost:3000"
+        ]
+    }
+})
 
 @app.route("/predict", methods=["POST", "OPTIONS"])
 @cross_origin()
