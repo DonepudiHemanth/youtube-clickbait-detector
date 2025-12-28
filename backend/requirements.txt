@@ -2,8 +2,8 @@ flask
 flask-cors
 numpy==2.4.0
 pandas
-scikit-learn
-joblib
+scikit-learn==1.6.1
+joblib=1.5.3
 transformers
 torch
 google-api-python-client
