@@ -2,10 +2,16 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from detector import predict_clickbait
 import os
-app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "*"}})
+from flask_cors import cross_origin
 
-@app.route("/predict", methods=["POST"])
+app = Flask(__name__)
+CORS(app, origins=[
+    "https://youtube-clickbait-detector.vercel.app",
+    "http://localhost:3000"
+])
+
+@app.route("/predict", methods=["POST", "OPTIONS"])
+@cross_origin()
 def predict():
     try:
         data = request.get_json(force=True)
