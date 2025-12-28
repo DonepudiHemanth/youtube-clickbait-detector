@@ -14,7 +14,7 @@ CORS(app, resources={
     }
 })
 
-@app.route("/predict", methods=["POST", "OPTIONS"])
+@app.route("/predict", methods=["POST"])
 @cross_origin()
 def predict():
     try:
