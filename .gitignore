@@ -1,3 +1,21 @@
+# # Env files
+# .env
+# backend/.env
+
+# # Node
+# node_modules/
+
+# # Python cache
+# __pycache__/
+# *.pyc
+
+# # Editor
+# .vscode/
+# Python
+__pycache__/
+venv/
+*.pyc
+
 # Env files
 .env
 backend/.env
@@ -5,9 +23,8 @@ backend/.env
 # Node
 node_modules/
 
-# Python cache
-__pycache__/
-*.pyc
+# OS
+.DS_Store
 
-# Editor
-.vscode/
+# Thumbnails or temp
+thumbnails/
