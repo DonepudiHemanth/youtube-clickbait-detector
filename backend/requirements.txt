@@ -1,0 +1,13 @@
+flask
+flask-cors
+numpy==2.4.0
+pandas
+scikit-learn
+joblib
+transformers
+torch
+google-api-python-client
+pillow
+requests
+xgboost
+python-dotenv
