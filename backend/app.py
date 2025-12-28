@@ -14,29 +14,25 @@ CORS(app, resources={
     }
 })
 
-# @app.route("/predict", methods=["POST"])
-# @cross_origin()
-# def predict():
-#     try:
-#         data = request.get_json(force=True)
-#         url = data.get("url")
-
-#         if not url:
-#             return jsonify({"error": "No URL provided"}), 400
-
-#         result = predict_clickbait(url)
-#         return jsonify({"result": result}), 200
-
-#     except Exception as e:
-#         print("🔥 BACKEND ERROR:", e)
-#         return jsonify({
-#             "error": "Backend processing failed",
-#             "details": str(e)
-#         }), 500
-
 @app.route("/predict", methods=["POST"])
+@cross_origin()
 def predict():
-    return jsonify({"result": "Backend reached OK"}), 200
+    try:
+        data = request.get_json(force=True)
+        url = data.get("url")
+
+        if not url:
+            return jsonify({"error": "No URL provided"}), 400
+
+        result = predict_clickbait(url)
+        return jsonify({"result": result}), 200
+
+    except Exception as e:
+        print("🔥 BACKEND ERROR:", e)
+        return jsonify({
+            "error": "Backend processing failed",
+            "details": str(e)
+        }), 500
 
 @app.route("/")
 def home():
